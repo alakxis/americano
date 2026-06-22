@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Secret Love Letter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="vignette"></div>
+
+    <canvas id="magicCanvas"></canvas>
+
+    <div class="night-sky" id="nightSky"></div>
+    <div class="moon"></div>
+    <div class="shooting-stars" id="shootingStars"></div>
+
+    <audio id="bgMusic" src="him.mp3" loop></audio>
+    <audio id="sfxClick" src="click.mp3"></audio>
+    <audio id="sfxTear" src="tear.mp3"></audio>
+    <audio id="sfxMeow" src="meow.mp3"></audio>
+
+    <div class="cassette-player hidden" id="cassette" onclick="toggleMusic()">
+        <div class="cassette-body">
+            <div class="reel left"></div>
+            <div class="reel right"></div>
+            <div class="cassette-label">Him ♡</div>
+        </div>
+    </div>
+
+    <section id="screen1" class="screen active">
+        <div class="vending-vault">
+            <div class="vault-header">
+                <span class="cat-icon">🐾</span>
+                <h2>EK Locker</h2>
+                <span class="cat-icon">🐾</span>
+            </div>
+            <div class="display-screen">
+                <p id="displayMessage">Enter Password</p>
+                <div class="dots-container" id="passwordDots"></div>
+            </div>
+            <div class="keypad">
+                <button class="key" onclick="pressKey(1)">1</button>
+                <button class="key" onclick="pressKey(2)">2</button>
+                <button class="key" onclick="pressKey(3)">3</button>
+                <button class="key" onclick="pressKey(4)">4</button>
+                <button class="key" onclick="pressKey(5)">5</button>
+                <button class="key" onclick="pressKey(6)">6</button>
+                <button class="key" onclick="pressKey(7)">7</button>
+                <button class="key" onclick="pressKey(8)">8</button>
+                <button class="key" onclick="pressKey(9)">9</button>
+                <button class="key clear-btn" onclick="clearKeypad()">C</button>
+                <button class="key" onclick="pressKey(0)">0</button>
+                <button class="key heart-btn" disabled>♡</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="heartCheck" class="dialogue-box hidden">
+        <p>🐾 <strong>Warning:</strong> Opening this letter may cause sudden blushing, increased heart rate, and overwhelming fondness. Proceed?</p>
+        <div class="dialogue-buttons">
+            <button id="btnBrave" onclick="proceedToEnvelope()">Yes, I am brave</button>
+            <button id="btnShy">No, I'm too shy!</button>
+        </div>
+    </div>
+
+    <section id="screen2" class="screen hidden">
+        <div class="envelope-wrapper">
+            <h3 class="envelope-text-top">🐾 A Letter Has Arrived 🐾</h3>
+            <div class="envelope-container" onclick="openEnvelope()">
+                <div class="cat-ears">
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+                </div>
+                <div class="envelope" id="envelope">
+                    <div class="flap" id="flap"></div>
+                    <div class="heart-seal" id="seal">❤️</div>
+                    <div class="letter-preview"></div>
+                    <div class="envelope-front"></div>
+                </div>
+            </div>
+            <h3 class="envelope-text-bottom">Open with care ♡</h3>
+        </div>
+    </section>
+
+    <section id="screen3" class="screen hidden">
+        <div class="letter-paper">
+            <div class="decorative-paws">
+                <span>🐾</span><span>🐾</span>
+            </div>
+            
+            <h1 class="letter-title" id="typewriterTitle"></h1>
+            <p class="letter-subtitle" id="typewriterSubtitle"></p>
+            
+            <div class="letter-body staggered-fade">
+                <p><span class="drop-cap">A</span>mong the countless souls that wandered this vast and weary world, there existed a boy who seemed as though he had been struck by lightning and left blessed by heaven's peculiar favor. One needed but a fleeting glimpse of his countenance to know that he had been crafted with great tenderness by angels and forged by deities who must have grown overly generous with their gifts. There was something unfair about him, truly. His eyes possessed the strange power to unravel thoughts left hidden and make even the strongest hearts surrender. Whenever his lips parted and words escaped them, the world seemed to pause in quiet admiration. Yet it was not the elegance of his features that remained etched in memory, but the smile he wore—a smile so joyous, so wonderfully foolish, that it transformed him from a heavenly sculpture into something infinitely dearer. He smiled with the goofiness of youth, with silly poses and laughter that carried the warmth of a thousand suns. Even the little moles upon his face resembled stars scattered across the heavens, and one could only marvel at such a sight and wonder if heaven itself had become jealous of its own creation.</p>
+                
+                <p>It was on a night drowned in music and laughter that he first appeared as though he had stepped from the pages of an unfinished story. The grand hall was alive with merriment, and people surrendered themselves to fleeting happiness beneath the golden lights. Yet amidst the celebration sat a man untouched by the enchantment surrounding him. He neither sought attention nor demanded admiration, though they came naturally to him. There was something noble in the way he carried himself, and something achingly lonely hidden behind his composed expression. His eyes spoke of battles no one had witnessed and burdens he had chosen to bear in silence. To others, he was merely another stranger amidst the crowd. But to those who cared to look closer, he was a mystery, a tale waiting patiently to be understood. He wore his exhaustion like armor and his kindness like a crown, and though he stood firmly amidst chaos, there remained within him the heart of a tired boy who longed for nothing more than peace.</p>
+                
+                <p>Fortune, whimsical as he often was, allowed the story to continue. Through spontaneous journeys and unplanned days, fragments of him slowly revealed themselves like pages turning one after another. He drank far too much Americano, enough to make his poor stomach protest against such cruelty. Strawberry ice cream brought him delight, and he possessed the astonishing ability to devour thirty-three Dragon Ball eggs with a determination worthy of legends. Despite the seriousness that adorned his features when he walked, there lived within him a creature no less bubbly than a cat. Indeed, cats occupied a sacred place within his affections. He adored black Bombay cats and fat orange ones that looked perpetually offended by life. He would gladly squeeze them, cuddle them, and shower them with all the love they deserved. And then there was little Dio, that round and adorable creature who had somehow found its way into his world, earning his endless fondness.</p>
+                
+                <p>He was a curious soul, fearless in ways that others seldom understood. He wandered places alone, not out of loneliness, but because he found beauty in breathing unfamiliar air and observing the world as it quietly unfolded around him. He preferred simple gifts and humble meals, finding joy in things that many overlooked. As the eldest child, he carried responsibilities that often distanced him from others, yet he never complained. There was a gentleness in him that revealed itself through small gestures—a hand offered without hesitation, kindness given without expectation, and a smile capable of rescuing the dreariest of days. He dressed well, wore his New Balance shoes faithfully, and possessed a scent so pleasant that one might foolishly wish to bottle it and carry it through life. And though fate had led him down the path of engineering, his heart still yearned to become a nurse. Even now, he held tightly to that dream, and perhaps that quiet perseverance was among the loveliest things about him.</p>
+                
+                <p>Of course, he was not without his peculiarities. When the world became too loud and his heart too overwhelmed, he vanished. Like a cat displeased with existence itself, he retreated into solitude and ghosted the realm without warning. What an avoidant little fellow he was. Yet even this strange habit could not diminish the fondness one held for him. For he was never merely the beautiful man others admired from afar. He was a soul both gentle and stubborn, brave and weary, serious and wonderfully ridiculous. He was the sort of man maidens dreamed of, though he himself seemed blissfully unaware of the effect he had upon others.</p>
+                
+                <p>And perhaps that was the greatest tragedy and the sweetest blessing of all.</p>
+                
+                <p>For among all the places he longed to visit and all the dreams he wished to fulfill, he remained entirely oblivious to the fact that somewhere in this world, there existed a heart that had quietly chosen him. Not because he was beautiful, though he truly was. Not because he was admirable, though he undeniably was. But because he was simply himself.</p>
+                
+                <p>And to that heart, he would forever remain what the title had always proclaimed—<br>
+                Him.</p>
+                
+                <div class="bullet-poem">
+                    <p>The boy whose smile brought life to ordinary days.</p>
+                    <p>The man whose silences held entire oceans.</p>
+                    <p>The dreamer whose heart still chased kindness.</p>
+                    <p>The cat lover.</p>
+                    <p>The coffee addict.</p>
+                    <p>The fearless wanderer.</p>
+                    <p>The unfinished story.</p>
+                </div>
+                
+                <p>And perhaps, if fate proved merciful and love remained patient, he would one day realize that he had been loved all along—not loudly, not desperately, but quietly and tenderly, in the way one admires the stars.</p>
+            </div>
+            
+            <div class="letter-footer staggered-fade">
+                <p>From afar.</p>
+                <p>With wonder.</p>
+                <p>And with a smile.</p>
+                <p class="heart-divider">♡</p>
+                <p>Loved quietly.<br>Loved tenderly.<br>Loved always.</p>
+                
+                <div class="polaroid-gallery">
+                    <div class="polaroid" style="--rot: -6deg;">
+                        <div class="photo">🐈‍⬛</div>
+                        <p>Bombay</p>
+                    </div>
+                    <div class="polaroid" style="--rot: 4deg;">
+                        <div class="photo">☕</div>
+                        <p>Americano</p>
+                    </div>
+                    <div class="polaroid" style="--rot: -3deg;">
+                        <div class="photo">👟</div>
+                        <p>New Balance</p>
+                    </div>
+                </div>
+
+                <div class="ps-reveal-container">
+                    <div class="ps-ribbon">♡ Gently scratch here ♡</div>
+                    <p class="closing-thought">Perhaps you had been loved all along.</p>
+                </div>
+            </div>
+
+            <div class="cat-companions staggered-fade" id="avoidantCats">
+                <div class="cat-tooltip-container">
+                    <span class="interactive-cat" onclick="showCatMessage(this, 'Meow ♡')">🐈‍⬛</span>
+                    <div class="cat-msg"></div>
+                </div>
+                <div class="cat-tooltip-container">
+                    <span class="interactive-cat" onclick="showCatMessage(this, 'Dio says hello ♡')">🐈</span>
+                    <div class="cat-msg"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
